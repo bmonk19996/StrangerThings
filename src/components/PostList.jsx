@@ -1,13 +1,10 @@
 import React from 'react';
-import SinglePost from './SinglePost';
+import {SinglePost} from './';
 
 const PostList = (props) => {
 const posts = props.posts;
-console.log(typeof posts, 'from outside map in Post List');
-
 return(
     <div>
-        <div>hello</div>
         {
             posts.length ? posts.map((post, idx) => {
                 return(

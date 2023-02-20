@@ -1,51 +1,52 @@
-const BASE_URL = "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/"
+const BASE_URL =
+  "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/";
 
-export const getPosts = async ()=>{
-    try{
-        const response = await fetch(BASE_URL + "posts");
-        const result = await response.json()
+export const getPosts = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}posts`);
+    const result = await response.json();
 
-        console.log(result)
-        return result
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-    }catch(error){
-        console.log(error)
-    }
-}
+export const logInPost = async (username, password) => {
+  try {
+    const response = await fetch(`${BASE_URL}users/logins`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
+        },
+      }),
+    });
 
-export const logIn = async (username, password)=> {
- try{
-//     const response = fetch(`${BASE_URL}users/logins`, {
-//   method: "POST",
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     user: {
-//       username: 'superman27',
-//       password: 'krypt0n0rbust'
-//     }
-//   })
+    const result = response.json();
 
-const response = await fetch(`${BASE_URL}users/logins`, {
-    method:'POST', 
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const registerAPI = async (username, password) => {
+  const response = await fetch(`${BASE_URL}users/register`, {
+    method: "POST",
     headers: {
-        'Content-Type' : 'application/json'
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-        user: {
-            username: username, 
-            password: password
-        }
-    })
-})
-
-const result = response.json();
-
-return result;
-
- }catch(error){
-    console.log(error);
- }
-}
-
+      user: {
+        username: username,
+        password: password,
+      },
+    }),
+  });
+};
