@@ -5,12 +5,12 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
-  createRoutesFromElements,
+  createRoutesFromElements, useOutletContext
 } from "react-router-dom";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Navbar/>}>
+    <Route path="/" element={<Navbar  context={[token, setToken]}/>}>
       <Route index element={<Main/>}/>
       <Route path="login" element={<LogIn/>}/>
       <Route path="register" element={<Register/>}/>

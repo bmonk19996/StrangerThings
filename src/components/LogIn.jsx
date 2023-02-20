@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { logInPost } from "../API-Adapt";
 const LogIn = (props) => {
-  const token = props.token;
-  const setToken = props.setToken;
+    const [token, setToken] = useOutletContext();
+//   const token = props.token;
+//   const setToken = props.setToken;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

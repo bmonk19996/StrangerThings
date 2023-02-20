@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { LogIn, Register } from "./";
 const Navbar = (props) => {
   const token = props.token;
@@ -23,7 +23,7 @@ const Navbar = (props) => {
           logout
         </button>
       </h2>
-      <Outlet />
+      <Outlet context={[token, setToken]}/>
     </div>
   );
 };
