@@ -3,7 +3,8 @@ const BASE_URL =
 
 function makeHeaders() {
   return {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    'Authorization' :  `Bearer ${localStorage.getItem('token')}`,
   };
 }
 //localStorage.getItem("token")
@@ -65,3 +66,23 @@ export const registerAPI = async (username, password) => {
     console.log(error);
   }
 };
+
+export const makeNewPost = async (title, description, price, willDeliver) => {
+ try{
+  const response = await fetch(`${BASE_URL}posts`, 
+  {
+    method: 'POST', 
+    headers: makeHeaders(), 
+    body: JSON.stringify({
+      post: {
+        title: title, 
+        description: description,
+        price: price,
+        willDeliver: willDeliver,
+      }
+    })
+  })
+ }catch(error){
+  console.log(error)
+ }
+}

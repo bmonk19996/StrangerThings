@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { getPosts } from "../API-Adapt";
-import { Navbar, PostList } from "./";
+import { Navbar, PostList, NewPost } from "./";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -18,6 +18,7 @@ const Main = () => {
   return (
     <div id="main">
       <PostList posts={posts} />
+      <NewPost />
     </div>
   );
 };
