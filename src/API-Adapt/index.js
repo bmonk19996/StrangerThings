@@ -1,6 +1,14 @@
 const BASE_URL =
   "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/";
 
+  function makeHeaders(){
+    return(
+      {
+        headers: 'application/json',
+      }
+    )
+  }
+
 export const getPosts = async () => {
   try {
     const response = await fetch(`${BASE_URL}posts`);
