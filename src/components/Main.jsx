@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import { getPosts } from "../API-Adapt";
 import { Navbar, PostList } from "./";
 
@@ -15,7 +16,6 @@ const Main = () => {
 
   return (
     <div id="main">
-      <Navbar setToken={setToken} token={token} />
       <PostList posts={posts} />
     </div>
   );

@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { logInPost } from "../API-Adapt";
-const LogIn = (props) => {
-  const token = props.token;
-  const setToken = props.setToken;
+import { registerAPI } from "../API-Adapt";
+
+const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  async function submitLogin(event) {
+  const token = props.token;
+  const setToken = props.setToken;
+
+  const submitRegister = async (event) => {
     event.preventDefault();
-    const response = await logInPost(username, password);
+    const response = await registerAPI(username, password);
     if (response.success) {
       setToken(response.data.token);
     }
-  }
+  };
 
   return (
     <div>
-      <form onSubmit={(event) => submitLogin(event)}>
+      <h2>Register</h2>
+      <form onSubmit={(event) => submitRegister(event)}>
         <label>Username</label>
         <input
           type="text"
@@ -33,4 +36,4 @@ const LogIn = (props) => {
   );
 };
 
-export default LogIn;
+export default Register;

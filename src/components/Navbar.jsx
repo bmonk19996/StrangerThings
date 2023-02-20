@@ -1,20 +1,29 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { LogIn, Register } from "./";
 const Navbar = (props) => {
   const token = props.token;
   const setToken = props.setToken;
 
+  function logOut() {
+    setToken("");
+  }
+
   return (
     <div id="navbar">
       <h2>
-        {" "}
-        <LogIn setToken={setToken} token={token} />
-        <Register setToken={setToken} token={token}/>
-        <button onClick={() => {
-            setToken('');
-        }}>logout</button>
+        <Link to="/">home</Link>
+        <Link to="/login">LogIn</Link>
+        <Link to="/register">register</Link>
+        <button
+          onClick={() => {
+            logOut();
+          }}
+        >
+          logout
+        </button>
       </h2>
+      <Outlet />
     </div>
   );
 };

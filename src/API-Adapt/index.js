@@ -1,13 +1,12 @@
 const BASE_URL =
   "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/";
 
-  function makeHeaders(){
-    return(
-      {
-        headers: 'application/json',
-      }
-    )
-  }
+function makeHeaders(token) {
+  return {
+    "Content-Type": "application/json",
+    Authorization: token,
+  };
+}
 
 export const getPosts = async () => {
   try {
@@ -25,9 +24,7 @@ export const logInPost = async (username, password) => {
   try {
     const response = await fetch(`${BASE_URL}users/login`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: makeHeaders(),
       body: JSON.stringify({
         user: {
           username: username,
@@ -45,25 +42,22 @@ export const logInPost = async (username, password) => {
 };
 
 export const registerAPI = async (username, password) => {
-
-  try{
+  try {
     const response = await fetch(`${BASE_URL}users/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      method: "POST",
+      headers: makeHeaders(),
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
         },
-        body: JSON.stringify({
-          user: {
-            username: username,
-            password: password,
-          },
-        }),
-      });
+      }),
+    });
 
-      const result = await response.json();
+    const result = await response.json();
 
-      return result;
-  }catch(error){
+    return result;
+  } catch (error) {
     console.log(error);
   }
 };
