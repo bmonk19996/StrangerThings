@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { getPosts } from "../API-Adapt";
 import Navbar from "./Navbar";
+import PostList from "./PostList";
 
 const Main = () => {
 
@@ -8,8 +9,8 @@ const Main = () => {
 
     async function retrievePosts () {
         const myPosts = await getPosts()
-        console.log(myPosts.data)
-        setPosts(myPosts.data);
+        // console.log(myPosts.data)
+        setPosts(myPosts.data.posts);
     }
     useEffect(() => {
         retrievePosts()  
@@ -18,7 +19,8 @@ const Main = () => {
     return(
         <div id="main">
             <Navbar/>
-          <h1>hello</h1>
+          <PostList posts={posts} />
+
         </div>
     )
 }
