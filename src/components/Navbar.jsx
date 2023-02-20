@@ -1,12 +1,10 @@
 import React from "react";
 import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { LogIn, Register } from "./";
-const Navbar = (props) => {
-  const token = props.token;
-  const setToken = props.setToken;
+const Navbar = () => {
 
   function logOut() {
-    setToken("");
+    localStorage.removeItem("token")
   }
 
   return (
@@ -23,7 +21,7 @@ const Navbar = (props) => {
           logout
         </button>
       </h2>
-      <Outlet context={[token, setToken]}/>
+      <Outlet/>
     </div>
   );
 };

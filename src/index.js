@@ -10,7 +10,7 @@ import {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Navbar  context={[token, setToken]}/>}>
+    <Route path="/" element={<Navbar/>}>
       <Route index element={<Main/>}/>
       <Route path="login" element={<LogIn/>}/>
       <Route path="register" element={<Register/>}/>

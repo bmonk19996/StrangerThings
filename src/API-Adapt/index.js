@@ -1,19 +1,16 @@
 const BASE_URL =
   "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/";
 
-function makeHeaders(token) {
+function makeHeaders() {
   return {
-    "Content-Type": "application/json",
-    Authorization: token,
+    "Content-Type": "application/json"
   };
 }
-
+//localStorage.getItem("token")
 export const getPosts = async () => {
   try {
     const response = await fetch(`${BASE_URL}posts`);
     const result = await response.json();
-
-    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -22,19 +19,22 @@ export const getPosts = async () => {
 
 export const logInPost = async (username, password) => {
   try {
+
     const response = await fetch(`${BASE_URL}users/login`, {
       method: "POST",
-      headers: makeHeaders(),
+      headers:
+      {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         user: {
           username: username,
           password: password,
-        },
+        }
       }),
     });
 
-    const result = response.json();
-
+    const result = await response.json();
     return result;
   } catch (error) {
     console.log(error);
@@ -43,9 +43,13 @@ export const logInPost = async (username, password) => {
 
 export const registerAPI = async (username, password) => {
   try {
+
     const response = await fetch(`${BASE_URL}users/register`, {
       method: "POST",
-      headers: makeHeaders(),
+      headers:
+      {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         user: {
           username: username,
@@ -53,7 +57,7 @@ export const registerAPI = async (username, password) => {
         },
       }),
     });
-
+    console.log(response)
     const result = await response.json();
 
     return result;

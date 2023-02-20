@@ -5,14 +5,11 @@ const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const token = props.token;
-  const setToken = props.setToken;
-
   const submitRegister = async (event) => {
     event.preventDefault();
     const response = await registerAPI(username, password);
     if (response.success) {
-      setToken(response.data.token);
+      localStorage.setItem('token',JSON.stringify(response.data.token))
     }
   };
 
