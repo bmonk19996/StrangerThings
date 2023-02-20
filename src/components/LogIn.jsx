@@ -6,10 +6,14 @@ const LogIn = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function submitLogin(event) {
+  async function submitLogin(event) {
     event.preventDefault();
-    setToken(logInPost(username, password));
+    const response =  await logInPost(username, password);
+       if(response.data){
+        setToken(response.data.token);
   }
+  console.log(response);
+}
 
   return (
     <div>
