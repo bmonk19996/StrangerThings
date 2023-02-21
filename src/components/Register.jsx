@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { registerAPI } from "../API-Adapt";
-
+import { useOutletContext } from "react-router-dom";
 const Register = () => {
   const [token, setToken] = useOutletContext()
   const [username, setUsername] = useState("");
@@ -14,7 +14,6 @@ const Register = () => {
       localStorage.setItem('token',JSON.stringify(response.data.token))
     }
   };
-console.log(token)
   return (
     <div>
       <h2>Register</h2>

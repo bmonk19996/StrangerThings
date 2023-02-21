@@ -4,21 +4,16 @@ import { getPosts } from "../API-Adapt";
 import { Navbar, PostList, NewPost } from "./";
 
 const Main = () => {
-  const [posts, setPosts] = useState([]);
- // const [token, setToken] = useState("");
-  async function retrievePosts() {
-    const myPosts = await getPosts();
-    setPosts(myPosts.data.posts);
-  }
+
+ const [token, setToken] = useState("");
   useEffect(() => {
-    retrievePosts();
-    //setToken(localStorage.getItem('token'))
+    setToken(localStorage.getItem('token'))
   }, []);
 
   return (
     <div id="main">
-      <PostList posts={posts} />
-      <NewPost />
+      <Navbar token={token} setToken={setToken}/>
+      <Outlet context={[token, setToken]}/>
     </div>
   );
 };
