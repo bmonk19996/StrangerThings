@@ -5,3 +5,4 @@ export { default as PostList } from "./PostList";
 export { default as SinglePost } from "./SinglePost";
 export { default as Register } from "./Register";
 export { default as NewPost } from './NewPost';
+export { default as MainPage} from './MainPage';

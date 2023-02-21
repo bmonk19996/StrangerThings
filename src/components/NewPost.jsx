@@ -1,24 +1,38 @@
 import React, {useState} from 'react';
 import { makeNewPost } from '../API-Adapt';
 
-const NewPost = () => {
+const NewPost = (props) => {
+    const token = props.token;
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
-    const [delivery, setDelivery] = useState(true);
+    const [willDeliver, setWillDeliver] = useState(false);
+    async function submitNewPost(event) {
+        event.preventDefault();
+        const response = await makeNewPost(token, title, description, price, willDeliver);
+        console.log(token)
+        if (response.success) {
+            console.log('success')
+            //display success message
+        }else{
+            //display failure message
+        }
+      }
  return(
     <div>
-        <form onSubmit={(event) => {
-            event.preventDefault();
-        }}>
+        <form onSubmit={(event) => {submitNewPost(event)}}>
             <label>Title</label>
-            <input type='text'></input>
+            <input type='text'
+            onInput={(event) => setTitle(event.target.value)}></input>
             <label>Description</label>
-            <input type='text'></input>
+            <input type='text'
+            onInput={(event) => setDescription(event.target.value)}></input>
             <label>Price</label>
-            <input type='number'></input>
+            <input type='number'
+            onInput={(event) => setPrice(event.target.value)}></input>
             <label>Delivery</label>
-            <input type='checkbox' value='Will Deliver'></input>
+            <input type='checkbox' value='Will Deliver'
+            onChange={() => setWillDeliver(!willDeliver)}></input>
             <button> Submit</button>
         </form>
     </div>
