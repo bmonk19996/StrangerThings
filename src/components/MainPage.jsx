@@ -3,7 +3,7 @@ import { NewPost, PostList } from "./";
 import { useOutletContext } from "react-router-dom";
 import { getPosts } from "../API-Adapt";
 export default function MainPage() {
-  const [token, setToken, showNew, setShowNew] = useOutletContext();
+  const [token,, showNew,] = useOutletContext();
   const [posts, setPosts] = useState([]);
 
   async function retrievePosts() {
@@ -24,4 +24,3 @@ console.log(posts)
   );
 }
 
-//<button onClick={setShowNew}>showNew</button>
