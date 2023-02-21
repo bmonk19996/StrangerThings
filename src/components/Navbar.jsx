@@ -16,7 +16,6 @@ const Navbar = (props) => {
   async function usernameSet() {
     const response = await getUsername(token);
     if (response.data) {
-      console.log(response.data.username);
       setUsername(response.data.username);
     } else {
       setUsername("");

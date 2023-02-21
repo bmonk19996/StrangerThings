@@ -25,10 +25,11 @@ const NewPost = (props) => {
     if (response.success) {
       console.log(response);
       const newPosts = [...posts];
-
+      setMessage('your item is posted')
       newPosts.push(response.data.post);
       setPosts(newPosts);
     } else {
+      setMessage('your item failed to post')
       //display failure message
     }
   }
@@ -78,6 +79,7 @@ const NewPost = (props) => {
           ></textarea>
         </div>
         <button> Submit</button>
+        <h3>{message}</h3>
       </form>
     </div>
   );
