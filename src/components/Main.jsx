@@ -5,7 +5,7 @@ import { Navbar, PostList, NewPost } from "./";
 
 
 const Main = () => {
-
+  const [showNew, setShowNew] = useState(false)
  const [token, setToken] = useState("");
   useEffect(() => {
     setToken(localStorage.getItem('token'))
@@ -13,8 +13,8 @@ const Main = () => {
 
   return (
     <div id="main">
-      <Navbar token={token} setToken={setToken} />
-      <Outlet context={[token, setToken]}/>
+      <Navbar token={token} setToken={setToken} setShowNew={setShowNew} showNew={showNew} />
+      <Outlet context={[token, setToken, showNew, setShowNew]}/>
     </div>
   );
 };

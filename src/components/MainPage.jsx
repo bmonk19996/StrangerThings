@@ -3,8 +3,9 @@ import {NewPost, PostList} from "./";
 import { useOutletContext } from "react-router-dom";
 import { getPosts } from "../API-Adapt";
 export default function MainPage() {
-    const [token, setToken] = useOutletContext()
+    const [token, setToken, showNew, setShowNew] = useOutletContext()
     const [posts, setPosts] = useState([]);
+ 
     async function retrievePosts() {
   
         const myPosts = await getPosts();
@@ -14,11 +15,15 @@ export default function MainPage() {
       useEffect(() => {
         retrievePosts();
       }, []);
-
   return (
     <div className="mainPage">
       <PostList posts={posts}/>
+      {token && showNew? 
       <NewPost token={token} setPosts={setPosts} posts={posts}/>
+      :null}
+      
     </div>
   );
 }
+
+//<button onClick={setShowNew}>showNew</button>
