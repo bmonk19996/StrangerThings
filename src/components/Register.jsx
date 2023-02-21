@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerAPI } from "../API-Adapt";
+import { registerPost } from "../API-Adapt";
 import { useOutletContext } from "react-router-dom";
 const Register = () => {
   const [token, setToken] = useOutletContext()
@@ -8,7 +8,7 @@ const Register = () => {
 
   const submitRegister = async (event) => {
     event.preventDefault();
-    const response = await registerAPI(username, password);
+    const response = await registerPost(username, password);
     if (response.success) {
       setToken(response.data.token)
       localStorage.setItem('token',JSON.stringify(response.data.token))

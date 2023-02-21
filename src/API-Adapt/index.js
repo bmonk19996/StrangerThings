@@ -39,7 +39,7 @@ export const logInPost = async (username, password) => {
   }
 };
 
-export const registerAPI = async (username, password) => {
+export const registerPost = async (username, password) => {
   try {
 
     const response = await fetch(`${BASE_URL}users/register`, {
