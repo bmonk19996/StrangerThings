@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { SinglePost } from "./";
-import { getPosts } from "../API-Adapt";
+
 
 const PostList = (props) => {
-  async function retrievePosts() {
-  
-    const myPosts = await getPosts();
-    setPosts(myPosts.data.posts);
-  }
+  const posts = props.posts
 
-  useEffect(() => {
-    retrievePosts();
-  }, []);
-  const [posts, setPosts] = useState([]);
   return (
     <div>
       {posts.length ? (

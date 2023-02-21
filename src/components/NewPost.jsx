@@ -3,6 +3,9 @@ import { makeNewPost } from '../API-Adapt';
 
 const NewPost = (props) => {
     const token = props.token;
+    const posts = props.posts;
+    const setPosts = props.setPosts
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
@@ -13,8 +16,11 @@ const NewPost = (props) => {
         const response = await makeNewPost(token, title, description, price, location, willDeliver);
         console.log(token)
         if (response.success) {
-            console.log('success')
-            //display success message
+            console.log(response)
+            const newPosts = [...posts]
+            
+            newPosts.push(response.data.post)
+            setPosts(newPosts)
         }else{
             //display failure message
         }
