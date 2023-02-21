@@ -12,8 +12,11 @@ const Navbar = (props) => {
     setToken("");
   }
   async function test(){
-    console.log(token)
-    console.log(await getUsername(token))
+    const response = await getUsername(token)
+    if(response.data){
+      console.log(response.data.username)
+    }
+
   }
   test()
   return (
