@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { logInPost } from "../API-Adapt";
 const LogIn = () => {
+const [token, setToken] = useOutletContext()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -9,10 +10,10 @@ const LogIn = () => {
     event.preventDefault();
     const response = await logInPost(username, password);
     if (response.success) {
+      setToken(response.data.token)
       localStorage.setItem('token',JSON.stringify(response.data.token))
     }
   }
-
   return (
     <div>
       <form onSubmit={(event) => submitLogin(event)}>

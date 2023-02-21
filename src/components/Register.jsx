@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { registerAPI } from "../API-Adapt";
 
-const Register = (props) => {
+const Register = () => {
+  const [token, setToken] = useOutletContext()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -9,10 +10,11 @@ const Register = (props) => {
     event.preventDefault();
     const response = await registerAPI(username, password);
     if (response.success) {
+      setToken(response.data.token)
       localStorage.setItem('token',JSON.stringify(response.data.token))
     }
   };
-
+console.log(token)
   return (
     <div>
       <h2>Register</h2>

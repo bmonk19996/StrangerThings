@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { SinglePost } from "./";
+import { getPosts } from "../API-Adapt";
 
 const PostList = (props) => {
-  const posts = props.posts;
+  async function retrievePosts() {
+  
+    const myPosts = await getPosts();
+    setPosts(myPosts.data.posts);
+  }
+
+  useEffect(() => {
+    retrievePosts();
+  }, []);
+  const [posts, setPosts] = useState([]);
   return (
     <div>
       {posts.length ? (
@@ -11,9 +21,7 @@ const PostList = (props) => {
             <SinglePost post={post} key={`the post is at the idex of ${idx}`} />
           );
         })
-      ) : (
-        <div>test</div>
-      )}
+      ) : null}
     </div>
   );
 };
