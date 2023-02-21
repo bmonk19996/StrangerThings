@@ -76,7 +76,7 @@ export const makeNewPost = async (token, title, description, price, location, wi
       post: {
         title: title, 
         description: description,
-        price: price,
+        price:`$${price}`,
         location: location,
         willDeliver: willDeliver,
       }
