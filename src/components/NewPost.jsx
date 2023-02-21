@@ -31,7 +31,7 @@ const NewPost = (props) => {
             <label>Price</label>
             <input type='number'
             onInput={(event) => setPrice(event.target.value)}></input>
-            <label>Location</label>
+            <label>Location (Optional)</label>
             <input type='text'
             onInput={(event) => setLocation(event.target.value)}></input>
             <label>Delivery (Optional)</label>
