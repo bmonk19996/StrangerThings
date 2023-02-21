@@ -7,10 +7,10 @@ export default function MainPage() {
   const [posts, setPosts] = useState([]);
 
   async function retrievePosts() {
-    const myPosts = await getPosts();
+    const myPosts = await getPosts(token);
     setPosts(myPosts.data.posts);
   }
-
+console.log(posts)
   useEffect(() => {
     retrievePosts(token);
   }, [token]);
