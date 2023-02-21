@@ -41,3 +41,10 @@
     align-content: center;
     justify-content: center;
 }
+.input{
+    display: flex;
+    justify-content: space-between;
+}
+#description{
+    height: 100px;
+}
