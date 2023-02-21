@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { LogIn, Register } from "./";
 import { getUsername } from "../API-Adapt";
@@ -7,18 +7,25 @@ const Navbar = (props) => {
   const setShowNew = props.setShowNew;
   const token = props.token;
   const setToken = props.setToken;
+  const [username, setUsername] = useState('');
+
+
   function logOut() {
     localStorage.removeItem("token");
     setToken("");
   }
-  async function test(){
-    const response = await getUsername(token)
+
+  useEffect( async () => {
+const response = await getUsername(token)
     if(response.data){
       console.log(response.data.username)
+      setUsername(response.data.username);
+    }else{
+      setUsername('');
     }
+  }, []);
 
-  }
-  test()
+
   return (
     <div id="navbar">
       <h2>
@@ -33,7 +40,8 @@ const Navbar = (props) => {
               logout
             </button>
             <button onClick={()=>setShowNew(!showNew)}>showNew</button>
-          </div>
+            <div>Hello, {username}!</div>
+          </div> 
         ) : (
           <div>
             <Link to="/login">LogIn</Link>

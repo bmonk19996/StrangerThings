@@ -13,8 +13,10 @@ export default function MainPage() {
       }
     
       useEffect(() => {
-        retrievePosts();
-      }, []);
+        retrievePosts(token);
+      }, [token]);
+
+      console.log(posts, 'posts from main page');
   return (
     <div className="mainPage">
       <PostList posts={posts}/>

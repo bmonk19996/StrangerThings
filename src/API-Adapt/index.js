@@ -7,9 +7,13 @@ function makeHeaders(token) {
     'Authorization' :`Bearer ${token}`,
   };
 }
-export const getPosts = async () => {
+export const getPosts = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}posts`);
+    const response = await fetch(`${BASE_URL}posts`, 
+    {
+      method: 'GET', 
+      headers: makeHeaders(token),
+    });
     const result = await response.json();
     return result;
   } catch (error) {
