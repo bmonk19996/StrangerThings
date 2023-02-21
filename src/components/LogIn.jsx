@@ -13,7 +13,7 @@ const [token, setToken] = useOutletContext()
     const response = await logInPost(username, password);
     if (response.success) {
       setToken(response.data.token)
-      localStorage.setItem('token',JSON.stringify(response.data.token));
+      localStorage.setItem('token',response.data.token);
       navigate('/');
     }
   }

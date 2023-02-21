@@ -12,7 +12,7 @@ const Register = () => {
     const response = await registerPost(username, password);
     if (response.success) {
       setToken(response.data.token)
-      localStorage.setItem('token',JSON.stringify(response.data.token))
+      localStorage.setItem('token',response.data.token)
       navigate('/')
     }
   };

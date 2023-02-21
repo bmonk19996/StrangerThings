@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { LogIn, Register } from "./";
+import { getUsername } from "../API-Adapt";
 const Navbar = (props) => {
   const showNew = props.showNew;
   const setShowNew = props.setShowNew;
@@ -10,7 +11,11 @@ const Navbar = (props) => {
     localStorage.removeItem("token");
     setToken("");
   }
-
+  async function test(){
+    console.log(token)
+    console.log(await getUsername(token))
+  }
+  test()
   return (
     <div id="navbar">
       <h2>

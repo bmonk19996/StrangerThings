@@ -2,13 +2,11 @@ const BASE_URL =
   "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/";
 
 function makeHeaders(token) {
-  console.log(token,"api")
   return {
     "Content-Type":"application/json",
     'Authorization' :`Bearer ${token}`,
   };
 }
-//localStorage.getItem("token")
 export const getPosts = async () => {
   try {
     const response = await fetch(`${BASE_URL}posts`);
@@ -87,4 +85,20 @@ export const makeNewPost = async (token, title, description, price, location, wi
  }catch(error){
   console.log(error)
  }
+}
+
+export const getUsername =async (token)=>{
+  
+  try {
+    const response = await fetch(`${BASE_URL}users/me`, {
+      method: "GET",
+      headers:makeHeaders(token)
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+
 }
