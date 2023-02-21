@@ -5,11 +5,12 @@ const NewPost = (props) => {
     const token = props.token;
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [location, setLocation] = useState('');
     const [price, setPrice] = useState(0);
     const [willDeliver, setWillDeliver] = useState(false);
     async function submitNewPost(event) {
         event.preventDefault();
-        const response = await makeNewPost(token, title, description, price, willDeliver);
+        const response = await makeNewPost(token, title, description, price, location, willDeliver);
         console.log(token)
         if (response.success) {
             console.log('success')
@@ -30,7 +31,10 @@ const NewPost = (props) => {
             <label>Price</label>
             <input type='number'
             onInput={(event) => setPrice(event.target.value)}></input>
-            <label>Delivery</label>
+            <label>Location</label>
+            <input type='text'
+            onInput={(event) => setLocation(event.target.value)}></input>
+            <label>Delivery (Optional)</label>
             <input type='checkbox' value='Will Deliver'
             onChange={() => setWillDeliver(!willDeliver)}></input>
             <button> Submit</button>

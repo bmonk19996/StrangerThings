@@ -61,7 +61,7 @@ export const registerPost = async (username, password) => {
   }
 };
 
-export const makeNewPost = async (token, title, description, price, willDeliver) => {
+export const makeNewPost = async (token, title, description, price, location, willDeliver) => {
  try{
   const response = await fetch(`${BASE_URL}posts`, 
   {
@@ -72,6 +72,7 @@ export const makeNewPost = async (token, title, description, price, willDeliver)
         title: title, 
         description: description,
         price: price,
+        location: location,
         willDeliver: willDeliver,
       }
     })
