@@ -6,7 +6,7 @@ const PostList = (props) => {
   const posts = props.posts
 
   return (
-    <div>
+    <div className="allPosts">
       {posts.length ? (
         posts.map((post, idx) => {
           return (

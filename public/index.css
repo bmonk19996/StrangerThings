@@ -2,3 +2,42 @@
     border: solid;
     margin: 5px;
 }
+
+.mainPage{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.allPosts{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    flex: 2;
+}
+
+#newPost{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    flex: 1;
+    max-width: 450px;
+}
+
+#newPost form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#sameLine{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}

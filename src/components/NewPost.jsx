@@ -26,20 +26,26 @@ const NewPost = (props) => {
         }
       }
  return(
-    <div>
+    <div id='newPost'>
         <form onSubmit={(event) => {submitNewPost(event)}}>
             <label>Title</label>
             <input type='text'
             onInput={(event) => setTitle(event.target.value)}></input>
             <label>Description</label>
-            <input type='text'
-            onInput={(event) => setDescription(event.target.value)}></input>
-            <label>Price</label>
+            <textarea onInput={(event) => setDescription(event.target.value)} id='desccription'></textarea>
+            <div id='sameLine'>
+                <label>Price</label>
             <input type='number'
             onInput={(event) => setPrice(event.target.value)}></input>
             <label>Location (Optional)</label>
             <input type='text'
-            onInput={(event) => setLocation(event.target.value)}></input>
+            onInput={(event) => setLocation(event.target.value)}></input></div>
+            {/* <label>Price</label>
+            <input type='number'
+            onInput={(event) => setPrice(event.target.value)}></input>
+            <label>Location (Optional)</label>
+            <input type='text'
+            onInput={(event) => setLocation(event.target.value)}></input> */}
             <label>Delivery (Optional)</label>
             <input type='checkbox' value='Will Deliver'
             onChange={() => setWillDeliver(!willDeliver)}></input>

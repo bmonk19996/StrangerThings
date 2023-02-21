@@ -16,7 +16,7 @@ export default function MainPage() {
       }, []);
 
   return (
-    <div>
+    <div className="mainPage">
       <PostList posts={posts}/>
       <NewPost token={token} setPosts={setPosts} posts={posts}/>
     </div>
