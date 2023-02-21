@@ -53,6 +53,7 @@ const NewPost = (props) => {
           <label>Price:</label>
           <input
             type="number"
+            step='0.01'
             onInput={(event) => setPrice(event.target.value)}
           ></input>
         </div>

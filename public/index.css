@@ -1,6 +1,35 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Montserrat:wght@200;300&display=swap');
+
+/*
+colors: 
+orange: ff9d47
+yellow: ffe156
+white: ffe9ce
+pink: ffb5c2
+blue:3777ff
+dark blue: 090446
+*/
+
+#navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: #ffb5c2;
+    color: #090446;
+}
+
 .post{
     border: solid;
     margin: 5px;
+    background-color: #ffe9ce;
+    color: #090446;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 35px;
+    /* text-align: center; */
+    padding: 15px;
 }
 
 .mainPage{
