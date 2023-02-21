@@ -2,7 +2,6 @@ import React from "react";
 
 const SinglePost = (props) => {
   const post = props.post;
-  console.log(post)
   return (
     <div className="post">
             <div>user:{post.author.username}</div>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import { logInPost } from "../API-Adapt";
+
 const LogIn = () => {
+  const navigate = useNavigate();
 const [token, setToken] = useOutletContext()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +13,8 @@ const [token, setToken] = useOutletContext()
     const response = await logInPost(username, password);
     if (response.success) {
       setToken(response.data.token)
-      localStorage.setItem('token',JSON.stringify(response.data.token))
+      localStorage.setItem('token',JSON.stringify(response.data.token));
+      navigate('/');
     }
   }
   return (
