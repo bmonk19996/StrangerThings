@@ -63,6 +63,9 @@ export const registerPost = async (username, password) => {
 
 export const makeNewPost = async (token, title, description, price, location, willDeliver) => {
  try{
+  if(location === ''){
+    location = '[On Request]'
+  }
   const response = await fetch(`${BASE_URL}posts`, 
   {
     method: 'POST', 
