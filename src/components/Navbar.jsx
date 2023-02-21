@@ -7,24 +7,24 @@ const Navbar = (props) => {
   const setShowNew = props.setShowNew;
   const token = props.token;
   const setToken = props.setToken;
-  const [username, setUsername] = useState('');
-
+  const [username, setUsername] = useState("");
 
   function logOut() {
     localStorage.removeItem("token");
     setToken("");
   }
-  async function usernameSet(){
-    const response =  await getUsername(token)
-    if(response.data){
-      console.log(response.data.username)
+  async function usernameSet() {
+    const response = await getUsername(token);
+    if (response.data) {
+      console.log(response.data.username);
       setUsername(response.data.username);
-    }else{
-      setUsername('');
+    } else {
+      setUsername("");
     }
   }
-  useEffect(() => {usernameSet()}, [token]);
-
+  useEffect(() => {
+    usernameSet();
+  }, [token]);
 
   return (
     <div id="navbar">
@@ -39,9 +39,9 @@ const Navbar = (props) => {
             >
               logout
             </button>
-            <button onClick={()=>setShowNew(!showNew)}>showNew</button>
+            <button onClick={() => setShowNew(!showNew)}>showNew</button>
             <div>Hello, {username}!</div>
-          </div> 
+          </div>
         ) : (
           <div>
             <Link to="/login">LogIn</Link>

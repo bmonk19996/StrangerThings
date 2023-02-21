@@ -3,15 +3,14 @@ const BASE_URL =
 
 function makeHeaders(token) {
   return {
-    "Content-Type":"application/json",
-    'Authorization' :`Bearer ${token}`,
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
   };
 }
 export const getPosts = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}posts`, 
-    {
-      method: 'GET', 
+    const response = await fetch(`${BASE_URL}posts`, {
+      method: "GET",
       headers: makeHeaders(token),
     });
     const result = await response.json();
@@ -23,15 +22,14 @@ export const getPosts = async (token) => {
 
 export const logInPost = async (username, password) => {
   try {
-
     const response = await fetch(`${BASE_URL}users/login`, {
       method: "POST",
-      headers:makeHeaders(),
+      headers: makeHeaders(),
       body: JSON.stringify({
         user: {
           username: username,
           password: password,
-        }
+        },
       }),
     });
 
@@ -44,10 +42,9 @@ export const logInPost = async (username, password) => {
 
 export const registerPost = async (username, password) => {
   try {
-
     const response = await fetch(`${BASE_URL}users/register`, {
       method: "POST",
-      headers:makeHeaders(),
+      headers: makeHeaders(),
       body: JSON.stringify({
         user: {
           username: username,
@@ -63,40 +60,44 @@ export const registerPost = async (username, password) => {
   }
 };
 
-export const makeNewPost = async (token, title, description, price, location, willDeliver) => {
- try{
-  if(location === ''){
-    location = '[On Request]'
+export const makeNewPost = async (
+  token,
+  title,
+  description,
+  price,
+  location,
+  willDeliver
+) => {
+  try {
+    if (location === "") {
+      location = "[On Request]";
+    }
+    const response = await fetch(`${BASE_URL}posts`, {
+      method: "POST",
+      headers: makeHeaders(token),
+      body: JSON.stringify({
+        post: {
+          title: title,
+          description: description,
+          price: `$${price}`,
+          location: location,
+          willDeliver: willDeliver,
+        },
+      }),
+    });
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.log(error);
   }
-  const response = await fetch(`${BASE_URL}posts`, 
-  {
-    method: 'POST', 
-    headers: makeHeaders(token), 
-    body: JSON.stringify({
-      post: {
-        title: title, 
-        description: description,
-        price:`$${price}`,
-        location: location,
-        willDeliver: willDeliver,
-      }
-    })
-  })
-  const result = await response.json();
+};
 
-  return result;
-
- }catch(error){
-  console.log(error)
- }
-}
-
-export const getUsername =async (token)=>{
-  
+export const getUsername = async (token) => {
   try {
     const response = await fetch(`${BASE_URL}users/me`, {
       method: "GET",
-      headers:makeHeaders(token)
+      headers: makeHeaders(token),
     });
 
     const result = await response.json();
@@ -104,5 +105,4 @@ export const getUsername =async (token)=>{
   } catch (error) {
     console.log(error);
   }
-
-}
+};

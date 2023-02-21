@@ -4,7 +4,7 @@ import { logInPost } from "../API-Adapt";
 
 const LogIn = () => {
   const navigate = useNavigate();
-const [token, setToken] = useOutletContext()
+  const [token, setToken] = useOutletContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,9 +12,9 @@ const [token, setToken] = useOutletContext()
     event.preventDefault();
     const response = await logInPost(username, password);
     if (response.success) {
-      setToken(response.data.token)
-      localStorage.setItem('token',response.data.token);
-      navigate('/');
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      navigate("/");
     }
   }
   return (

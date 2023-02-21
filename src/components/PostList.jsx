@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { SinglePost } from "./";
 
-
 const PostList = (props) => {
-  const posts = props.posts
+  const posts = props.posts;
 
   return (
     <div className="allPosts">
-      {posts.length ? (
-        posts.map((post, idx) => {
-          return (
-            <SinglePost post={post} key={`the post is at the idex of ${idx}`} />
-          );
-        })
-      ) : null}
+      {posts.length
+        ? posts.map((post, idx) => {
+            return (
+              <SinglePost
+                post={post}
+                key={`the post is at the idex of ${idx}`}
+              />
+            );
+          })
+        : null}
     </div>
   );
 };

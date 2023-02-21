@@ -1,29 +1,27 @@
-import React, {useState, useEffect} from "react";
-import {NewPost, PostList} from "./";
+import React, { useState, useEffect } from "react";
+import { NewPost, PostList } from "./";
 import { useOutletContext } from "react-router-dom";
 import { getPosts } from "../API-Adapt";
 export default function MainPage() {
-    const [token, setToken, showNew, setShowNew] = useOutletContext()
-    const [posts, setPosts] = useState([]);
- 
-    async function retrievePosts() {
-  
-        const myPosts = await getPosts();
-        setPosts(myPosts.data.posts);
-      }
-    
-      useEffect(() => {
-        retrievePosts(token);
-      }, [token]);
+  const [token, setToken, showNew, setShowNew] = useOutletContext();
+  const [posts, setPosts] = useState([]);
 
-      console.log(posts, 'posts from main page');
+  async function retrievePosts() {
+    const myPosts = await getPosts();
+    setPosts(myPosts.data.posts);
+  }
+
+  useEffect(() => {
+    retrievePosts(token);
+  }, [token]);
+
+  console.log(posts, "posts from main page");
   return (
     <div className="mainPage">
-      <PostList posts={posts}/>
-      {token && showNew? 
-      <NewPost token={token} setPosts={setPosts} posts={posts}/>
-      :null}
-      
+      <PostList posts={posts} />
+      {token && showNew ? (
+        <NewPost token={token} setPosts={setPosts} posts={posts} />
+      ) : null}
     </div>
   );
 }

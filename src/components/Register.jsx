@@ -3,7 +3,7 @@ import { registerPost } from "../API-Adapt";
 import { useOutletContext, useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
-  const [token, setToken] = useOutletContext()
+  const [token, setToken] = useOutletContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,9 +11,9 @@ const Register = () => {
     event.preventDefault();
     const response = await registerPost(username, password);
     if (response.success) {
-      setToken(response.data.token)
-      localStorage.setItem('token',response.data.token)
-      navigate('/')
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      navigate("/");
     }
   };
   return (

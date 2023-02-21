@@ -6,6 +6,7 @@ const NewPost = (props) => {
   const posts = props.posts;
   const setPosts = props.setPosts;
 
+  const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
@@ -21,7 +22,6 @@ const NewPost = (props) => {
       location,
       willDeliver
     );
-    console.log(token);
     if (response.success) {
       console.log(response);
       const newPosts = [...posts];
@@ -34,7 +34,7 @@ const NewPost = (props) => {
   }
   return (
     <div id="newPost">
-        <h1>Make New Post</h1>
+      <h1>Make New Post</h1>
       <form
         onSubmit={(event) => {
           submitNewPost(event);
@@ -47,7 +47,6 @@ const NewPost = (props) => {
             onInput={(event) => setTitle(event.target.value)}
           ></input>
         </div>
-       
 
         <div className="input">
           <label>Price:</label>
