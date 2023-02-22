@@ -58,8 +58,8 @@ const SinglePost = (props) => {
       </div>
       {post.isAuthor ? (
         <div>
-          <button onClick={() => deleteMyPost()}>delete</button>
-          <Link to= {`/edit/${post._id}`} state={post}><button onClick={() => editPost()}>edit</button></Link>
+          <button onClick={() => deleteMyPost()} className='pageButtons'>delete</button>
+          <Link to= {`/edit/${post._id}`} state={post}><button onClick={() => editPost()} className='pageButtons'>edit</button></Link>
         </div>
       ) : (
         <form

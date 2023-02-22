@@ -29,13 +29,13 @@ const Navbar = (props) => {
     <div id="navbar">
       {token ? (
         <div id="loggedIn">
+          <h2 className="nav-items greeting">{`hi, ${username}!`}</h2>
           <Link to="/" className="nav-items">
             Home
           </Link>
           <Link to="/messages" className="nav-items">
-            messages
+            Messages
           </Link>
-          <h2 className="nav-items greeting">{`hi, ${username}!`}</h2>
           <button
             className="nav-items"
             onClick={() => {

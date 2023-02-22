@@ -1,5 +1,6 @@
 /* imports */
 @import url("https://fonts.googleapis.com/css2?family=Gloock&family=Montserrat:ital,wght@0,200;0,300;0,500;1,600&display=swap");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 /*
 old colors: 
@@ -48,6 +49,9 @@ body {
 .nav-items.greeting {
   display: flex;
   flex-direction: row;
+  border-bottom: dashed 3px #ffb5c2;
+  animation: shakeX;
+  animation-duration: 1.5s;
   flex: 8;
 }
 
@@ -74,7 +78,17 @@ body {
   padding: 10px;
 }
 
-#navbar a {
+#navbar a{
+  text-align: center;
+  background-color: #fcedee;
+  color: #020887;
+  border: none;
+  text-decoration: none;
+  border-radius: 35px;
+  padding: 10px;
+}
+
+/* #navbar a {
   color: #fcedee;
 }
 
@@ -84,7 +98,7 @@ body {
 
 #navbar a:hover {
   color: #ffb5c2;
-}
+} */
 
 #navbar h1 {
   letter-spacing: 2px;
@@ -134,7 +148,7 @@ body {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  flex: 2;
+  flex: 4;
 }
 
 #newPost {
@@ -142,7 +156,7 @@ body {
   flex-direction: column;
   align-content: center;
   justify-content: flex-start;
-  flex: 1;
+  flex: 2;
   max-width: 450px;
   background-color: #fcedee;
   padding: 30px;
@@ -267,4 +281,78 @@ body {
   padding: 10px;
 }
 
+#searchBar{
+  /* margin: auto; */
+  margin-top: 20px;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  flex: 0.2;
+  font-family: 'Gloock', serif;
+  color: #020887;
+}
 
+#searchBar label{
+  text-decoration: underline #fcedee;
+  font-size: 20pt;
+}
+
+#searchBar input[type='text']{
+  background-color: #ffb5c2;
+  color: #090446;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  padding: 15px;
+  border-radius: 17px;
+  margin-top: 10px;
+}
+
+.post #sendMessageForm{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  max-width: 275px;
+  margin-top: 10px;
+}
+
+.post #sendMessageForm label{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  font-size: 15pt;
+  color: #020887;
+  text-decoration: underline 3px  #ffb5c2;
+}
+
+.post #sendMessageForm textarea{
+  background-color: #fcedee;
+  color: #090446;
+  font-family: 'Montserrat', san-serif;
+  padding: 10px;
+  margin: 10px;
+  border: solid 3px #020887;
+  border-radius: 20px;
+}
+
+.post #sendMessageForm button, .pageButtons{
+  align-self: center;
+  text-align: center;
+  padding: 10px;
+  width: 60px;
+  background-color: #020887;
+  color: #fcedee;
+  border: none;
+  border-radius: 35px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 2px 2px 3px #a7abdd;
+  margin-right: 5px;
+}
+
+.post #sendMessageForm button:hover, .pageButtons:hover{
+  color: #a7abdd;
+  box-shadow: 3px 3px 4px #090446;
+}
