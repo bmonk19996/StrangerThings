@@ -4,21 +4,34 @@ import { useOutletContext } from "react-router-dom";
 
 export default function Messages() {
   const [token] = useOutletContext();
-  const [messages, setMessages] = useState([]);
+  const [messagesTo, setMessagesTo] = useState([]);
+  const [messagesFrom, setMessagesFrom] = useState([]);
   useEffect(() => {
     getMessages();
   }, []);
   async function getMessages() {
     const response = await getUser(token);
-    if (response.data) {
-      setMessages(response.data.messages);
-    } else {
-      setMessages([]);
+    // if (response.data) {
+    //   setMessages(response.data.messages);
+    // } else {
+    //   setMessages([]);
+    // }
+
+    const messages = response.data.messages;
+
+    for(let i = 0; i < messages.length; i++){
+      if(messages[i].fromUser._id === response._id){
+        console.log('the message is from me');
+      }else{
+        console.log('not from me');
+      }
     }
+
+    // if(response.data.messages.fromUser === )
   }
-  console.log(messages);
   return (
     <div>
+      <h2>Received</h2>
       {messagesTo.map((message, idx) => {
         return (
           <div className="message">
@@ -28,6 +41,7 @@ export default function Messages() {
           </div>
         );
       })}
+      <h2>Sent</h2>
       {messagesFrom.map((message, idx) => {
         return (
           <div className="message">
