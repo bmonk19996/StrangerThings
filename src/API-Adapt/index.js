@@ -120,3 +120,22 @@ export const deletePost = async(token,id) =>{
     console.log(error);
   }
 }
+
+export const sendMessageAPI = async(token, id, message) => {
+  try{
+    const response = await fetch(`${BASE_URL}posts/${id}/messages`, {
+      method: "POST",
+      headers: makeHeaders(token),
+      body: JSON.stringify({
+       message:{
+        content: message
+       }
+      }),
+    });
+    const result = await response.json();
+
+    return result;
+  }catch(error){
+    console.log(error);
+  }
+}
