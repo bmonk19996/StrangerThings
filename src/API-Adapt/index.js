@@ -139,3 +139,20 @@ export const sendMessageAPI = async (token, id, message) => {
     console.log(error);
   }
 };
+
+export const editPostPatch = async (token, id, edit) => {
+  try {
+    const response = await fetch(`${BASE_URL}posts/${id}`, {
+      method: "PATCH",
+      headers: makeHeaders(token),
+      body: JSON.stringify({
+        post: edit,
+      }),
+    });
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

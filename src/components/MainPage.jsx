@@ -9,7 +9,7 @@ export default function MainPage() {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
-    const temporary = posts.filter((post) => post.title.includes(searchTerm));
+    const temporary = posts.filter((post) => (post.title.includes(searchTerm)));
 
     setFilteredPosts(temporary);
   }, [searchTerm]);
