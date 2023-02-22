@@ -16,7 +16,7 @@ const SinglePost = (props) => {
       <div><span className="cardLabel">Created</span>: {post.createdAt}</div>
       {
         post.isAuthor?
-        <div>is author</div>:<div>not author</div>
+        <div><button>delete</button><button>edit</button></div>:null
       }
     </div>
   );
