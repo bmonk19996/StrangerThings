@@ -6,7 +6,6 @@ import {
   RouterProvider,
   Route,
   createRoutesFromElements,
-  useOutletContext,
 } from "react-router-dom";
 
 const router = createBrowserRouter(

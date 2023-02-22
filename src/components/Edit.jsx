@@ -1,23 +1,48 @@
-import React, {useState} from "react";
-import {useParams, useLocation} from 'react-router-dom'
+import React, { useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { editPostPatch } from "../API-Adapt";
+import { useOutletContext } from "react-router-dom";
 
-export default function Edit(){
-const location = useLocation();
 
-// const [message, setMessage] = useState("");
+export default function Edit(props) {
+  const location = useLocation();
+  const [token] = useOutletContext();
+  // const [message, setMessage] = useState("");
   const [title, setTitle] = useState(location.state.title);
   const [description, setDescription] = useState(location.state.description);
   const [postLocation, setPostLocation] = useState(location.state.location);
   const [price, setPrice] = useState(location.state.price);
   const [willDeliver, setWillDeliver] = useState(location.state.willDeliver);
 
-    const { id } = useParams();
+  const { id } = useParams();
 
-    return (<div>
+  async function submitEditPost(event) {
+    event.preventDefault();
+    const response = await editPostPatch(token, id, 
+      title,
+      description,
+      price,
+      location,
+      willDeliver,
+    );
+    console.log(response)
+    if (response.success) {
+      //if successful, update posts, and set success message
+      console.log(response);
+      const newPosts = [...posts];
+      newPosts.push(response.data.post);
+      setPosts(newPosts);
+    } else {
+      //set failure message
+    }
+  }
 
-<form
+  return (
+    <div>
+      <form
+        className="edit"
         onSubmit={(event) => {
-          submitNewPost(event);
+          submitEditPost(event);
         }}
       >
         <div className="input">
@@ -65,5 +90,5 @@ const location = useLocation();
         <button>submit edited post</button>
       </form>
     </div>
-)
+  );
 }

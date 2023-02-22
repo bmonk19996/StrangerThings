@@ -140,13 +140,27 @@ export const sendMessageAPI = async (token, id, message) => {
   }
 };
 
-export const editPostPatch = async (token, id, edit) => {
+export const editPostPatch = async (
+  token,
+  id,
+  title,
+  description,
+  price,
+  location,
+  willDeliver
+) => {
   try {
     const response = await fetch(`${BASE_URL}posts/${id}`, {
       method: "PATCH",
       headers: makeHeaders(token),
       body: JSON.stringify({
-        post: edit,
+        post: {
+          title: title,
+          description: description,
+          price: price,
+          location: location,
+          willDeliver: willDeliver,
+        },
       }),
     });
     const result = await response.json();
