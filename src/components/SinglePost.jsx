@@ -3,28 +3,27 @@ import { deletePost, sendMessageAPI } from "../API-Adapt";
 const SinglePost = (props) => {
   const post = props.post;
   const token = props.token;
-  const posts = props.posts
-  const idx = props.idx
-  const setPosts = props.setPosts
-  const [sentMessage, setSentMessage] = useState('');
+  const posts = props.posts;
+  const idx = props.idx;
+  const setPosts = props.setPosts;
+  const [sentMessage, setSentMessage] = useState("");
 
   async function deleteMyPost() {
     const response = await deletePost(token, post._id);
     if (response.success) {
       const newPosts = [...posts];
-      newPosts.splice(idx,1)
+      newPosts.splice(idx, 1);
       setPosts(newPosts);
     }
   }
   function editPost() {
     //edit the post
   }
- async function sendMessage(){
+  async function sendMessage() {
     //send a message:
 
     const response = await sendMessageAPI(token, post._id, sentMessage);
     console.log(response);
-
   }
 
   return (
@@ -61,19 +60,24 @@ const SinglePost = (props) => {
           <button onClick={() => deleteMyPost()}>delete</button>
           <button onClick={() => editPost()}>edit</button>
         </div>
-      ) : 
-      // <button onClick={() => sendMessage()}>Message User</button>
-      <form id='sendMessageForm' onSubmit={
-        (event)=> {
-          event.preventDefault();
-          sendMessage();
-        }
-      }>
-        <label>Send Message to Seller:</label>
-        <textarea rows='5' cols='30' onInput={(event) => setSentMessage(event.target.value)}></textarea>
-        <button>Send</button>
-      </form>
-      }
+      ) : (
+        // <button onClick={() => sendMessage()}>Message User</button>
+        <form
+          id="sendMessageForm"
+          onSubmit={(event) => {
+            event.preventDefault();
+            sendMessage();
+          }}
+        >
+          <label>Send Message to Seller:</label>
+          <textarea
+            rows="5"
+            cols="30"
+            onInput={(event) => setSentMessage(event.target.value)}
+          ></textarea>
+          <button>Send</button>
+        </form>
+      )}
     </div>
   );
 };

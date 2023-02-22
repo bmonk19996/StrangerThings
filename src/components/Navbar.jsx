@@ -26,26 +26,43 @@ const Navbar = (props) => {
   }, [token]);
 
   return (
-
-  <div id='navbar'>
-    {token ? 
-    <div id='loggedIn'>
-      <Link to="/" className="nav-items">home</Link>
-      <Link to="/messages" className="nav-items">messages</Link>
-      <h2 className="nav-items greeting">{`hi, ${username}!`}</h2>
-      <button className="nav-items" onClick={() => {logOut();}}> Logout </button>
-      <button className="nav-items" onClick={() => {setShowNew(!showNew)}}>New Post</button>
-
+    <div id="navbar">
+      {token ? (
+        <div id="loggedIn">
+          <Link to="/" className="nav-items">
+            home
+          </Link>
+          <Link to="/messages" className="nav-items">
+            messages
+          </Link>
+          <h2 className="nav-items greeting">{`hi, ${username}!`}</h2>
+          <button
+            className="nav-items"
+            onClick={() => {
+              logOut();
+            }}
+          >
+            {" "}
+            Logout{" "}
+          </button>
+          <button
+            className="nav-items"
+            onClick={() => {
+              setShowNew(!showNew);
+            }}
+          >
+            New Post
+          </button>
+        </div>
+      ) : (
+        <div>
+          <Link to="/">home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Make an Account</Link>
+        </div>
+      )}
+      <h1>Stranger's Things</h1>
     </div>
-    : 
-    <div>
-      <Link to="/">home</Link>
-      <Link to='/login'>Login</Link>
-      <Link to='/register'>Make an Account</Link>
-    </div>
-    }
-    <h1>Stranger's Things</h1>
-  </div>
   );
 };
 

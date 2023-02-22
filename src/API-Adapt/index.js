@@ -107,7 +107,7 @@ export const getUser = async (token) => {
   }
 };
 
-export const deletePost = async(token,id) =>{
+export const deletePost = async (token, id) => {
   try {
     const response = await fetch(`${BASE_URL}posts/${id}`, {
       method: "DELETE",
@@ -119,23 +119,23 @@ export const deletePost = async(token,id) =>{
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-export const sendMessageAPI = async(token, id, message) => {
-  try{
+export const sendMessageAPI = async (token, id, message) => {
+  try {
     const response = await fetch(`${BASE_URL}posts/${id}/messages`, {
       method: "POST",
       headers: makeHeaders(token),
       body: JSON.stringify({
-       message:{
-        content: message
-       }
+        message: {
+          content: message,
+        },
       }),
     });
     const result = await response.json();
 
     return result;
-  }catch(error){
+  } catch (error) {
     console.log(error);
   }
-}
+};

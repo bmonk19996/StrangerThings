@@ -26,12 +26,12 @@ const NewPost = (props) => {
       //if successful, update posts, and set success message
       console.log(response);
       const newPosts = [...posts];
-      setMessage('your item is posted')
+      setMessage("your item is posted");
       newPosts.push(response.data.post);
       setPosts(newPosts);
     } else {
       //set failure message
-      setMessage('your item failed to post')
+      setMessage("your item failed to post");
     }
   }
   return (
@@ -54,7 +54,7 @@ const NewPost = (props) => {
           <label>Price:</label>
           <input
             type="number"
-            step='0.01'
+            step="0.01"
             onInput={(event) => setPrice(event.target.value)}
           ></input>
         </div>
@@ -66,7 +66,7 @@ const NewPost = (props) => {
           ></input>
         </div>
         <div className="input">
-        <label>Delivery (Optional):</label>
+          <label>Delivery (Optional):</label>
           <input
             type="checkbox"
             value="Will Deliver"
