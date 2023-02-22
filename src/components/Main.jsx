@@ -5,11 +5,7 @@ import { Navbar, PostList, NewPost } from "./";
 
 const Main = () => {
   const [showNew, setShowNew] = useState(false);
-  const [token, setToken] = useState("");
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, []);
-
+  const [token, setToken] = useState(localStorage.getItem("token"));
   return (
     <div id="main">
       <Navbar

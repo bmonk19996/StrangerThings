@@ -14,6 +14,10 @@ const SinglePost = (props) => {
       }
       <div><span className="cardLabel">Location</span>: {post.location}</div>
       <div><span className="cardLabel">Created</span>: {post.createdAt}</div>
+      {
+        post.isAuthor?
+        <div>is author</div>:<div>not author</div>
+      }
     </div>
   );
 };
