@@ -17,16 +17,6 @@ useEffect(() => {
   setFilteredPosts(temporary);
 
 }, [searchTerm])
-
-function filterPosts(post){
-  if((post.title).includes(searchTerm)){
-    // console.log(post);
-    return post;
-  }
-}
-
-console.log(filteredPosts);
-
   async function retrievePosts() {
     const myPosts = await getPosts(token);
     setPosts(myPosts.data.posts);
@@ -42,7 +32,11 @@ console.log(filteredPosts);
           <input type='text' onInput={(event) => {setSearchTerm(event.target.value)}}></input>
         </form>
       </div>
-      <PostList posts={posts} setPosts={setPosts} token={token} />
+      {
+        searchTerm.length?
+        <PostList posts={filteredPosts} setPosts={setPosts} token={token} />:<PostList posts={posts} setPosts={setPosts} token={token} />
+      }
+
       {token && showNew ? (
         <NewPost token={token} setPosts={setPosts} posts={posts} />
       ) : null}
