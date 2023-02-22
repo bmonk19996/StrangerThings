@@ -35,7 +35,7 @@ const NewPost = (props) => {
   }
   return (
     <div id="newPost">
-      <h1>Make New Post</h1>
+      <h1>Add a Post to the Board</h1>
       <form
         onSubmit={(event) => {
           submitNewPost(event);

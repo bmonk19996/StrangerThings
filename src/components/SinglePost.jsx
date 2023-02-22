@@ -4,16 +4,16 @@ const SinglePost = (props) => {
   const post = props.post;
   return (
     <div className="post">
-      <div>user:{post.author.username}</div>
-      <div>Item:{post.title}</div>
-      <div>Description:{post.description}</div>
-      <div>Price:{post.price}</div>
+      <div><span className="cardLabel">User</span>: {post.author.username}</div>
+      <div><span className="cardLabel">Item</span>: {post.title}</div>
+      <div><span className="cardLabel">Description</span>: {post.description}</div>
+      <div><span className="cardLabel">Price</span>: {post.price}</div>
       {
         post.willDeliver?
-        <div>Delivery:yes</div>:<div>Delivery:no</div>
+        <div><span className="cardLabel">Delivery</span>: yes</div>:<div><span className="cardLabel">Delivery</span>: no</div>
       }
-      <div>Location:{post.location}</div>
-      <div>Created:{post.createdAt}</div>
+      <div><span className="cardLabel">Location</span>: {post.location}</div>
+      <div><span className="cardLabel">Created</span>: {post.createdAt}</div>
     </div>
   );
 };
