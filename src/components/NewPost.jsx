@@ -69,7 +69,6 @@ const NewPost = (props) => {
           <label>Delivery (Optional):</label>
           <input
             type="checkbox"
-            value="Will Deliver"
             onChange={() => setWillDeliver(!willDeliver)}
           ></input>
         </div>

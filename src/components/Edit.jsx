@@ -9,7 +9,7 @@ const location = useLocation();
   const [description, setDescription] = useState(location.state.description);
   const [postLocation, setPostLocation] = useState(location.state.location);
   const [price, setPrice] = useState(location.state.price);
-  const [willDeliver, setWillDeliver] = useState(false);
+  const [willDeliver, setWillDeliver] = useState(location.state.willDeliver);
 
     const { id } = useParams();
 
@@ -50,7 +50,7 @@ const location = useLocation();
           <label>Delivery (Optional):</label>
           <input
             type="checkbox"
-            defaultValue={true}
+            checked={willDeliver}
             onChange={() => setWillDeliver(!willDeliver)}
           ></input>
         </div>
