@@ -16,7 +16,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<LogIn />} />
       <Route path="register" element={<Register />} />
       <Route path="messages" element={<Messages />} />
-      <Route path="edit" element={<Edit/>}/>
+      <Route path={`/edit/:id`} element={<Edit/>}/>
     </Route>
   )
 );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { deletePost, sendMessageAPI } from "../API-Adapt";
 const SinglePost = (props) => {
   const post = props.post;
@@ -58,10 +59,9 @@ const SinglePost = (props) => {
       {post.isAuthor ? (
         <div>
           <button onClick={() => deleteMyPost()}>delete</button>
-          <button onClick={() => editPost()}>edit</button>
+          <Link to= {`/edit/${post._id}`} state={post}><button onClick={() => editPost()}>edit</button></Link>
         </div>
       ) : (
-        // <button onClick={() => sendMessage()}>Message User</button>
         <form
           id="sendMessageForm"
           onSubmit={(event) => {
