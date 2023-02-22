@@ -18,8 +18,9 @@ const LogIn = () => {
     }
   }
   return (
-    <div>
-      <form onSubmit={(event) => submitLogin(event)}>
+    <div className="styleAccounts">
+      <h2>Login to Existing Account</h2>
+      <form onSubmit={(event) => submitLogin(event)} className='accountsForm'>
         <label>Username</label>
         <input
           type="text"

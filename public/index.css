@@ -90,6 +90,15 @@ body {
   letter-spacing: 2px;
 }
 
+#loggedOut{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  flex: 1;
+}
+
 .post {
   /* border: solid; */
   margin: 10px;
@@ -199,6 +208,63 @@ body {
   justify-content: space-between;
   margin: 10px;
 }
+
 #description {
   height: 100px;
 }
+
+.styleAccounts{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  max-width: 750px;
+  background-color: #fcedee;
+  color: #090446;
+  font-family: 'Montserrat', sans-serif;
+    /* border: none; */
+    border-radius: 35px;
+    padding: 20px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.styleAccounts h2{
+  text-decoration: underline #a7abdd;
+}
+
+.styleAccounts form{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+
+}
+
+.styleAccounts form button{
+  text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #020887;
+    color: #a7abdd;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 35px;
+    box-shadow: 2px 2px 3px #a7abdd;
+}
+
+.styleAccounts form button:hover{
+  color: #fcedee;
+    box-shadow: 3px 3px 4px #090446;
+}
+
+.styleAccounts form input[type='text']{
+  background-color: #ffb5c2;
+  color: #090446;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  padding: 10px;
+}
+
+

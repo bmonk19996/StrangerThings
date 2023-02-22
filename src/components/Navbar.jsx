@@ -30,7 +30,7 @@ const Navbar = (props) => {
       {token ? (
         <div id="loggedIn">
           <Link to="/" className="nav-items">
-            home
+            Home
           </Link>
           <Link to="/messages" className="nav-items">
             messages
@@ -55,8 +55,8 @@ const Navbar = (props) => {
           </button>
         </div>
       ) : (
-        <div>
-          <Link to="/">home</Link>
+        <div id="loggedOut">
+          <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Make an Account</Link>
         </div>

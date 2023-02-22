@@ -11,7 +11,7 @@ export default function Edit(props) {
   const [title, setTitle] = useState(location.state.title);
   const [description, setDescription] = useState(location.state.description);
   const [postLocation, setPostLocation] = useState(location.state.location);
-  const [price, setPrice] = useState(location.state.price);
+  const [price, setPrice] = useState((location.state.price).substring(1));
   const [willDeliver, setWillDeliver] = useState(location.state.willDeliver);
 
   const { id } = useParams();

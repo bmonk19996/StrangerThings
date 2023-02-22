@@ -17,9 +17,9 @@ const Register = () => {
     }
   };
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={(event) => submitRegister(event)}>
+    <div className="styleAccounts">
+      <h2>Create New Account</h2>
+      <form onSubmit={(event) => submitRegister(event)} className='accountsForm'>
         <label>Username</label>
         <input
           type="text"
