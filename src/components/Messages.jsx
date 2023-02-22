@@ -5,6 +5,8 @@ import { useOutletContext } from "react-router-dom";
 export default function Messages() {
   const [token] = useOutletContext();
   const [messages, setMessages] = useState([]);
+  const [messagesTo, setMessagesTo] = useState([]);
+  const [messagesFrom, setMessagesFrom] = useState([]);
   useEffect(() => {
     getMessages();
   }, []);
@@ -17,9 +19,19 @@ export default function Messages() {
     }
   }
   console.log(messages);
-  return messages.map((message, idx) => {
+  return messagesTo.map((message, idx) => {
     return (
-      <div className="message">
+      <div className="message" key={`the unique key for this is ${idx}`}>
+        <div>content:{message.content}</div>
+        <div>from: {message.fromUser.username}</div>
+        <div> item: {message.post.title} </div>
+      </div>
+    );
+  }
+
+  messagesFrom.map((message, idx) => {
+    return (
+      <div className="message" key={`the unique key for this is ${idx}`}>
         <div>content:{message.content}</div>
         <div>from: {message.fromUser.username}</div>
         <div> item: {message.post.title} </div>
