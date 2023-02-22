@@ -93,7 +93,7 @@ export const makeNewPost = async (
   }
 };
 
-export const getUsername = async (token) => {
+export const getUser = async (token) => {
   try {
     const response = await fetch(`${BASE_URL}users/me`, {
       method: "GET",
