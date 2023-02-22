@@ -1,5 +1,5 @@
 /* imports */
-@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Montserrat:ital,wght@0,200;0,300;0,500;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gloock&family=Montserrat:ital,wght@0,200;0,300;0,500;1,600&display=swap");
 
 /*
 old colors: 
@@ -18,155 +18,187 @@ plum: #42103D
 blue: #020887
 */
 
-body{
-    margin: 0;
-    background-color: #A7ABDD;
+body {
+  margin: 0;
+  background-color: #a7abdd;
 }
 
-#navbar{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
-    background-color: #020887;
-    color: #FCEDEE;
-    padding: 15px;
-    font-family: 'Gloock', serif;
+#navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  background-color: #020887;
+  color: #fcedee;
+  padding: 15px;
+  font-family: "Gloock", serif;
 }
 
-.nav-items{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    flex: 3;
-    align-content: center;
-    justify-content: space-between;
-    margin: 20px;
+.nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 3;
+  align-content: center;
+  justify-content: space-between;
+  margin: 20px;
 }
 
-.nav-items.greeting{
-    display: flex;
-    flex-direction: row;
-    /* max-width: 80px; */
-    flex: 8;
+.nav-items.greeting {
+  display: flex;
+  flex-direction: row;
+  flex: 8;
 }
 
-#loggedIn{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+#loggedIn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
+#navbar button {
+  margin: auto;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #fcedee;
+  color: #020887;
+  border: none;
+  height: 50px;
+  width: 65px;
+  font-family: "Gloock", serif;
+  border-radius: 35px;
+  margin-right: 10px;
+  padding: 10px;
+}
 
-#navbar button{
+#navbar a {
+  color: #fcedee;
+}
+
+#navbar a:active {
+  color: #ffb5c2;
+}
+
+#navbar a:hover {
+  color: #ffb5c2;
+}
+
+#navbar h1 {
+  letter-spacing: 2px;
+}
+
+.post {
+  /* border: solid; */
+  margin: 10px;
+  background-color: #fcedee;
+  color: #090446;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 35px;
+  /* text-align: center; */
+  box-shadow: 2px 2px 3px #ffb5c2;
+  padding: 20px;
+  line-height: 30px;
+  max-width: 750px;
+}
+
+.cardLabel {
+  font-weight: 600;
+  /* font-style: italic; */
+  color: #020887;
+  text-decoration: underline #a7abdd;
+  letter-spacing: 1px;
+}
+
+.mainPage {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.allPosts {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  flex: 2;
+}
+
+#newPost {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  flex: 1;
+  max-width: 450px;
+  background-color: #fcedee;
+  padding: 30px;
+  color: #020887;
+  font-family: "Montserrat", sans-serif;
+}
+
+#newPost h1 {
+  font-family: "Gloock", serif;
+}
+
+#newPost form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+#newPost > form > .input > label {
+  text-decoration: underline #a7abdd;
+}
+
+#newPost > form > .input > input[type="text"],
+#newPost > form > .input > input[type="textarea"],
+#newPost > form > .input > input[type="Number"],
+#newPost > form > .input > input[type="checkbox"],
+#newPost > form > .input > textarea {
+  background-color: #ffb5c2;
+  border: none;
+  padding: 10px;
+  color: #090446;
+  font-family: 'Montserrat', sans-serif;
+  /* border-radius: 10px; */
+}
+
+#newPost button{
     margin: auto;
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
     text-align: center;
-    background-color:  #FCEDEE;
-    border: none;
-    height: 50px;
-    width: 65px;
-    font-family: 'Gloock', serif;
-    border-radius: 35px;
-    margin-right: 10px;
     padding: 10px;
-}
-
-#navbar a{
-    color:  #FCEDEE;
-}
-
-#navbar a:active{
-    color: #ffb5c2;
-}
-
-#navbar a:hover{
-    color: #ffb5c2;
-}
-
-#navbar h1{
-    letter-spacing: 2px;
-}
-
-
-.post{
-    /* border: solid; */
-    margin: 10px;
-    background-color: #FCEDEE;
-    color: #090446;
+    margin-top: 10px;
+    background-color: #020887;
+    color: #a7abdd;
     font-family: 'Montserrat', sans-serif;
+    border: none;
     border-radius: 35px;
-    /* text-align: center; */
-    box-shadow: 2px 2px 3px #ffb5c2;
-    padding: 20px;
-    line-height: 30px;
+    box-shadow: 2px 2px 3px #a7abdd;
 }
 
-.cardLabel{
-    font-weight: 600;
-    /* font-style: italic; */
-    color: #020887;
-    text-decoration: underline #a7abdd;
-    letter-spacing: 1px;
+#newPost button:hover{
+    background-color: #020887;
+    color: #fcedee;
+    box-shadow: 3px 3px 4px #090446;
 }
 
-.mainPage{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
+#sameLine {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
-
-.allPosts{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    flex: 2;
+.input {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }
-
-#newPost{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-start;
-    flex: 1;
-    max-width: 450px;
-    background-color: #FCEDEE;
-    padding: 30px;
-    color: #020887;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#newPost h1{
-    font-family: 'Gloock', serif;
-}
-
-#newPost form{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-}
-
-#newPost > form > .input >label{
-    text-decoration: underline #a7abdd;
-}
-
-#sameLine{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-}
-.input{
-    display: flex;
-    justify-content: space-between;
-}
-#description{
-    height: 100px;
+#description {
+  height: 100px;
 }

@@ -23,14 +23,15 @@ const NewPost = (props) => {
       willDeliver
     );
     if (response.success) {
+      //if successful, update posts, and set success message
       console.log(response);
       const newPosts = [...posts];
       setMessage('your item is posted')
       newPosts.push(response.data.post);
       setPosts(newPosts);
     } else {
+      //set failure message
       setMessage('your item failed to post')
-      //display failure message
     }
   }
   return (
@@ -65,7 +66,7 @@ const NewPost = (props) => {
           ></input>
         </div>
         <div className="input">
-          <label>Delivery (Optional):</label>
+        <label>Delivery (Optional):</label>
           <input
             type="checkbox"
             value="Will Deliver"
@@ -79,7 +80,7 @@ const NewPost = (props) => {
             id="description"
           ></textarea>
         </div>
-        <button> Submit</button>
+        <button>Add Post</button>
         <h3>{message}</h3>
       </form>
     </div>

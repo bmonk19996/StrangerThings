@@ -54,9 +54,9 @@ const Navbar = (props) => {
     {token ? 
     <div id='loggedIn'>
       <Link to="/" className="nav-items">home</Link>
-      <h4 className="nav-items greeting">{`hi, ${username}!`}</h4>
+      <h2 className="nav-items greeting">{`hi, ${username}!`}</h2>
       <button className="nav-items" onClick={() => {logOut();}}> Logout </button>
-      <button className="nav-items" onClick={() => {setShowNew(!showNew)}}>Add a Post</button>
+      <button className="nav-items" onClick={() => {setShowNew(!showNew)}}>New Post</button>
     </div>
     : 
     <div>
