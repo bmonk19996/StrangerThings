@@ -10,13 +10,12 @@ export default function MainPage() {
     const myPosts = await getPosts(token);
     setPosts(myPosts.data.posts);
   }
-console.log(posts)
   useEffect(() => {
     retrievePosts(token);
   }, [token]);
   return (
     <div className="mainPage">
-      <PostList posts={posts} />
+      <PostList posts={posts} setPosts={setPosts} token={token} />
       {token && showNew ? (
         <NewPost token={token} setPosts={setPosts} posts={posts} />
       ) : null}

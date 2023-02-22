@@ -106,3 +106,17 @@ export const getUsername = async (token) => {
     console.log(error);
   }
 };
+
+export const deletePost = async(token,id) =>{
+  try {
+    const response = await fetch(`${BASE_URL}posts/${id}`, {
+      method: "DELETE",
+      headers: makeHeaders(token),
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
