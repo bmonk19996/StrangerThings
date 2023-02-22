@@ -16,7 +16,14 @@ export default function Messages() {
       setMessages([]);
     }
   }
+  console.log(messages);
   return messages.map((message, idx) => {
-    return <div>item number:{idx}</div>;
+    return (
+      <div className="message">
+        <div>content:{message.content}</div>
+        <div>from: {message.fromUser.username}</div>
+        <div> item: {message.post.title} </div>
+      </div>
+    );
   });
 }
