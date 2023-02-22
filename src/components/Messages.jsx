@@ -3,54 +3,68 @@ import { getUser } from "../API-Adapt";
 import { useOutletContext } from "react-router-dom";
 
 export default function Messages() {
+    const buttonText = ['open','close']
   const [token] = useOutletContext();
   const [messagesTo, setMessagesTo] = useState([]);
   const [messagesFrom, setMessagesFrom] = useState([]);
+  const [received, setReceived] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [buttonReceive, setButtonReceive] = useState(0)
+  const [buttonSent, setButtonSent] = useState(0)
+
+
   useEffect(() => {
     getMessages();
   }, []);
   async function getMessages() {
     const response = await getUser(token);
-    // if (response.data) {
-    //   setMessages(response.data.messages);
-    // } else {
-    //   setMessages([]);
-    // }
-
     const messages = response.data.messages;
-
-    for(let i = 0; i < messages.length; i++){
-      if(messages[i].fromUser._id === response._id){
-        console.log('the message is from me');
-      }else{
-        console.log('not from me');
+    const tempTo = [];
+    const tempFrom = [];
+    for (let i = 0; i < messages.length; i++) {
+      if (messages[i].fromUser.username === response.data.username) {
+        tempFrom.push(messages[i]);
+      } else {
+        tempTo.push(messages[i]);
       }
     }
-
-    // if(response.data.messages.fromUser === )
+    setMessagesTo(tempTo);
+    setMessagesFrom(tempFrom);
+  }
+  function receiveChange() {
+    setReceived(!received)
+    setButtonReceive((buttonReceive + 1) % buttonText.length)
+  }
+  function sentChange() {
+    setSent(!sent)
+    setButtonSent((buttonSent + 1) % buttonText.length)
   }
   return (
     <div>
       <h2>Received</h2>
-      {messagesTo.map((message, idx) => {
+      <button onClick={() => receiveChange()}>{buttonText[buttonReceive]}</button>
+      {received?
+      messagesTo.map((message, idx) => {
         return (
-          <div className="message">
+          <div className="message" key={`messagesTo:${idx}`}>
             <div>content:{message.content}</div>
             <div>from: {message.fromUser.username}</div>
             <div> item: {message.post.title} </div>
           </div>
         );
-      })}
+      }):null}
       <h2>Sent</h2>
-      {messagesFrom.map((message, idx) => {
+      <button onClick={() => sentChange()}>{buttonText[buttonSent]}</button>
+      {sent?
+      messagesFrom.map((message, idx) => {
         return (
-          <div className="message">
+          <div className="message"key={`messagesFrom:${idx}`}>
             <div>content:{message.content}</div>
             <div>from: {message.fromUser.username}</div>
             <div> item: {message.post.title} </div>
           </div>
         );
-      })}
+      }):null}
     </div>
   );
 }
