@@ -462,3 +462,13 @@ body {
   color: #020887;
   text-decoration: underline #a7abdd;
 }
+
+.editButton{
+  margin: auto;
+  background-color: #020887;
+  color: #fcedee;
+  box-shadow: 2px 2px 3px #ffb5c2;
+  padding: 10px;
+  border: none;
+
+}
