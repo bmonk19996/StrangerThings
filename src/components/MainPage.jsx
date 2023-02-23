@@ -9,7 +9,7 @@ export default function MainPage() {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
-    const temporary = posts.filter((post) => (post.title.includes(searchTerm)));
+    const temporary = posts.filter((post) => ((post.title).toLowerCase()).includes(searchTerm.toLowerCase()));
 
     setFilteredPosts(temporary);
   }, [searchTerm]);
@@ -20,6 +20,11 @@ export default function MainPage() {
   useEffect(() => {
     retrievePosts(token);
   }, [token]);
+
+  function clearSearch() {
+    setSearchTerm("");
+  }
+
   return (
     <div className="mainPage">
       <div id="searchBar">
@@ -27,10 +32,12 @@ export default function MainPage() {
           <label>Search for Posts:</label>
           <input
             type="text"
+            value={searchTerm}
             onInput={(event) => {
               setSearchTerm(event.target.value);
             }}
           ></input>
+          <button className='pageButtons'onClick={() => clearSearch()}>clear</button>
         </form>
       </div>
       {searchTerm.length ? (
@@ -40,7 +47,12 @@ export default function MainPage() {
       )}
 
       {token && showNew ? (
-        <NewPost token={token} setPosts={setPosts} posts={posts} setShowNew={setShowNew}/>
+        <NewPost
+          token={token}
+          setPosts={setPosts}
+          posts={posts}
+          setShowNew={setShowNew}
+        />
       ) : null}
     </div>
   );
