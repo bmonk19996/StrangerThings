@@ -90,7 +90,7 @@ export default function Edit(props) {
             id="description"
           ></textarea>
         </div>
-        <button>submit edited post</button>
+        <button className="editButton">Submit Edited Post</button>
       </form>
       <h3>{message}</h3>
     </div>

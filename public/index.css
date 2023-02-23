@@ -450,8 +450,15 @@ body {
 }
 
 .editPage > form input[type='text'], .editPage textarea, .editPage > form input[type='Number']{
+  font-family: 'Montserrat', sans-serif;
   background-color: #ffb5c2;
+  color: #090446;
   border: none;
   padding: 10px;
   border-radius: 15px;
+}
+
+.editPage > form label{
+  color: #020887;
+  text-decoration: underline #a7abdd;
 }
