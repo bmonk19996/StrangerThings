@@ -3,20 +3,13 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 /*
-old colors: 
-orange: ff9d47
-yellow: ffe156
-white: ffe9ce
-pink: #ffb5c2
-blue:3777ff
-dark blue: 090446
-
 new colors: 
 periwinkle: #A7ABDD
 green: #19535F
 lavender: #FCEDEE
 plum: #42103D
 blue: #020887
+dark blue: 090446
 */
 
 body {
@@ -88,17 +81,6 @@ body {
   padding: 10px;
 }
 
-/* #navbar a {
-  color: #fcedee;
-}
-
-#navbar a:active {
-  color: #ffb5c2;
-}
-
-#navbar a:hover {
-  color: #ffb5c2;
-} */
 
 #navbar h1 {
   letter-spacing: 2px;
@@ -114,13 +96,11 @@ body {
 }
 
 .post {
-  /* border: solid; */
   margin: 10px;
   background-color: #fcedee;
   color: #090446;
   font-family: "Montserrat", sans-serif;
   border-radius: 35px;
-  /* text-align: center; */
   box-shadow: 2px 2px 3px #ffb5c2;
   padding: 20px;
   line-height: 30px;
@@ -129,7 +109,6 @@ body {
 
 .cardLabel {
   font-weight: 600;
-  /* font-style: italic; */
   color: #020887;
   text-decoration: underline #a7abdd;
   letter-spacing: 1px;
@@ -180,8 +159,6 @@ body {
 }
 
 #newPost > form > .input > input[type="text"],
-#newPost > form > .input > input[type="textarea"],
-#newPost > form > .input > input[type="Number"],
 #newPost > form > .input > input[type="checkbox"],
 #newPost > form > .input > textarea {
   background-color: #ffb5c2;
@@ -189,7 +166,6 @@ body {
   padding: 10px;
   color: #090446;
   font-family: 'Montserrat', sans-serif;
-  /* border-radius: 10px; */
 }
 
 #newPost button{
@@ -237,7 +213,6 @@ body {
   background-color: #fcedee;
   color: #090446;
   font-family: 'Montserrat', sans-serif;
-    /* border: none; */
     border-radius: 35px;
     padding: 20px;
     margin-top: 15px;
@@ -450,7 +425,7 @@ body {
   /* background-color: #020887; */
 }
 
-.editPage > form input[type='text'], .editPage textarea, .editPage > form input[type='Number']{
+.editPage > form input[type='text'], .editPage textarea{
   font-family: 'Montserrat', sans-serif;
   background-color: #ffb5c2;
   color: #090446;
@@ -488,4 +463,76 @@ body {
 h3{
   animation: tada;
   animation-duration: 1s;
+}
+
+/* media queries */
+@media screen and (max-width: 540px){
+
+  body{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .mainPage{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #searchBar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100px;
+    margin: auto;
+  }
+
+  #navbar{
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .post{
+    width: 250px;
+  }
+
+  .editPage{
+    width: 250px;
+  }
+
+  .editPage > form{
+    width: 230px;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .editPage > form input[type='text'], .editPage textarea{
+    padding: 0;
+    margin: 0;
+  }
+
+  #newPost{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 912px){
+  #navbar{
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .post{
+    width: 200px;
+  }
+
+  #newPost{
+    width: 275px;
+  }
 }
