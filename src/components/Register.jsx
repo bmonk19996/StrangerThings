@@ -3,6 +3,7 @@ import { registerPost } from "../API-Adapt";
 import { useOutletContext, useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
+  const [message, setMessage] = useState('');
   const [token, setToken] = useOutletContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +15,8 @@ const Register = () => {
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       navigate("/");
+    }else{
+      setMessage('Your account was not created');
     }
   };
   return (
@@ -32,6 +35,7 @@ const Register = () => {
         ></input>
         <button>submit</button>
       </form>
+      {message.length? <h3>{message}</h3>: null}
     </div>
   );
 };

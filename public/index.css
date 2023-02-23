@@ -461,7 +461,7 @@ body {
 }
 
 h3{
-  animation: tada;
+  animation: shakeX;
   animation-duration: 1s;
 }
 

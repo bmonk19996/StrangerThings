@@ -5,6 +5,7 @@ import { logInPost } from "../API-Adapt";
 const LogIn = () => {
   const navigate = useNavigate();
   const [token, setToken] = useOutletContext();
+  const [message, setMessage] = useState('');
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +16,8 @@ const LogIn = () => {
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       navigate("/");
+    }else{
+      setMessage('We were not able to login to your account');
     }
   }
   return (
@@ -33,6 +36,7 @@ const LogIn = () => {
         ></input>
         <button>submit</button>
       </form>
+      {message.length? <h3>{message}</h3>: null}
     </div>
   );
 };
