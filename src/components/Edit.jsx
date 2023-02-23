@@ -11,7 +11,7 @@ export default function Edit(props) {
   const [title, setTitle] = useState(location.state.title);
   const [description, setDescription] = useState(location.state.description);
   const [postLocation, setPostLocation] = useState(location.state.location);
-  const [price, setPrice] = useState((location.state.price).substring(1));
+  const [price, setPrice] = useState(location.state.price);
   const [willDeliver, setWillDeliver] = useState(location.state.willDeliver);
   const [message, setMessage] = useState("");
   const { id } = useParams();
@@ -60,8 +60,7 @@ export default function Edit(props) {
         <div className="input">
           <label>Price:</label>
           <input
-            type="number"
-            step="0.01"
+            type="text"
             defaultValue={price}
             onInput={(event) => setPrice(event.target.value)}
           ></input>

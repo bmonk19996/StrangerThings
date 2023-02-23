@@ -10,7 +10,7 @@ const NewPost = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(false);
   async function submitNewPost(event) {
     event.preventDefault();
@@ -70,8 +70,7 @@ const NewPost = (props) => {
         <div className="input">
           <label>Price:</label>
           <input
-            type="number"
-            step="0.01"
+            type="text"
             onInput={(event) => setPrice(event.target.value)}
           ></input>
         </div>

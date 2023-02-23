@@ -79,7 +79,7 @@ export const makeNewPost = async (
         post: {
           title: title,
           description: description,
-          price: `$${price}`,
+          price: price,
           location: location,
           willDeliver: willDeliver,
         },
@@ -157,7 +157,7 @@ export const editPostPatch = async (
         post: {
           title: title,
           description: description,
-          price: `$${price}`,
+          price: price,
           location: location,
           willDeliver: willDeliver,
         },
