@@ -435,9 +435,10 @@ body {
   margin-top: 10px;
   padding: 15px;
   display: flex;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
-  width: 600px;
+  width: 650px;
   background-color: #fcedee;
   color: #090446;
   border-radius: 35px;
@@ -464,11 +465,27 @@ body {
 }
 
 .editButton{
-  margin: auto;
   background-color: #020887;
   color: #fcedee;
   box-shadow: 2px 2px 3px #ffb5c2;
   padding: 10px;
   border: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 35px;
 
+}
+
+.editButton:hover{
+  color: #a7abdd;
+  box-shadow: 3px 3px 4px #090446;
+}
+
+.editPage h3{
+  margin: auto;
+}
+
+h3{
+  animation: tada;
+  animation-duration: 1s;
 }

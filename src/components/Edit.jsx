@@ -41,7 +41,8 @@ export default function Edit(props) {
   }
 
   return (
-    <div className="editPage">
+    <div>
+      <div className="editPage">
       <form
         className="edit"
         onSubmit={(event) => {
@@ -91,7 +92,8 @@ export default function Edit(props) {
         </div>
         <button className="editButton">Submit Edited Post</button>
       </form>
-      <h3>{message}</h3>
+      {message.length ?  <h3>{message}</h3>: null} 
+    </div>
     </div>
   );
 }

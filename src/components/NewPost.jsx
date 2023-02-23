@@ -96,7 +96,7 @@ const NewPost = (props) => {
           ></textarea>
         </div>
         <button>Add Post</button>
-        <h3>{message}</h3>
+        {message.length ? <h3>{message}</h3>: null}
       </form>
       <button
         onClick={() => {
