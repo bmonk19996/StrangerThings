@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { editPostPatch } from "../API-Adapt";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 
 
 export default function Edit(props) {
@@ -13,8 +13,10 @@ export default function Edit(props) {
   const [postLocation, setPostLocation] = useState(location.state.location);
   const [price, setPrice] = useState((location.state.price).substring(1));
   const [willDeliver, setWillDeliver] = useState(location.state.willDeliver);
-
+  const [message, setMessage] = useState("");
   const { id } = useParams();
+  const navigate = useNavigate();
+
 
   async function submitEditPost(event) {
     event.preventDefault();
@@ -28,11 +30,14 @@ export default function Edit(props) {
       willDeliver,
       token, id
     );
-    console.log(response)
      if (response.success) {
+      setMessage("your item is edited");
+      setTimeout(()=>{navigate("/");},1000)
 
      } else {
+      setMessage('failed to edit')
      }
+
   }
 
   return (
@@ -87,6 +92,7 @@ export default function Edit(props) {
         </div>
         <button>submit edited post</button>
       </form>
+      <h3>{message}</h3>
     </div>
   );
 }
