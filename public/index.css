@@ -350,9 +350,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   box-shadow: 2px 2px 3px #a7abdd;
   margin-right: 5px;
+  margin-top: 5px;
 }
 
-.post #sendMessageForm button:hover, .pageButtons:hover{
+.post #sendMessageForm button:hover, .pageButtons:hover, .messageButton:hover{
   color: #a7abdd;
   box-shadow: 3px 3px 4px #090446;
 }
@@ -427,4 +428,30 @@ body {
   border: 3px solid #a7abdd;
   border-radius: 35px;
   text-align: center;
+}
+
+.editPage{
+  margin: auto;
+  margin-top: 10px;
+  padding: 15px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 600px;
+  background-color: #fcedee;
+  color: #090446;
+  border-radius: 35px;
+}
+
+.editPage > form{
+  width: 500px;
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: #020887; */
+}
+
+.editPage > form input[type='text'], .editPage textarea, .editPage > form input[type='Number']{
+  background-color: #ffb5c2;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
 }

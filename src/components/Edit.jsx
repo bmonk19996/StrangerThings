@@ -41,7 +41,7 @@ export default function Edit(props) {
   }
 
   return (
-    <div>
+    <div className="editPage">
       <form
         className="edit"
         onSubmit={(event) => {
