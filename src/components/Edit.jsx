@@ -18,25 +18,26 @@ export default function Edit(props) {
 
   async function submitEditPost(event) {
     event.preventDefault();
-    console.log(title)
-    console.log(description)
-    const response = await editPostPatch(token, id, 
+    console.log(title);
+    console.log(description);
+    const response = await editPostPatch( 
       title,
       description,
       price,
-      location,
+      postLocation,
       willDeliver,
+      token, id
     );
     console.log(response)
-    if (response.success) {
-      //if successful, update posts, and set success message
-      console.log(response);
-      const newPosts = [...posts];
-      newPosts.push(response.data.post);
-      setPosts(newPosts);
-    } else {
-      //set failure message
-    }
+    // if (response.success) {
+    //   //if successful, update posts, and set success message
+    //   console.log(response);
+    //   const newPosts = [...posts];
+    //   newPosts.push(response.data.post);
+    //   setPosts(newPosts);
+    // } else {
+    //   //set failure message
+    // }
   }
 
   return (
