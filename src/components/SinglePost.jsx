@@ -10,19 +10,16 @@ const SinglePost = (props) => {
   const [sentMessage, setSentMessage] = useState("");
 
   async function deleteMyPost() {
-    const response = await deletePost(token, post._id);
-    if (response.success) {
-      const newPosts = [...posts];
-      newPosts.splice(idx, 1);
-      setPosts(newPosts);
+    if (confirm("Are you sure you want to delete this")) {
+      const response = await deletePost(token, post._id);
+      if (response.success) {
+        const newPosts = [...posts];
+        newPosts.splice(idx, 1);
+        setPosts(newPosts);
+      }
     }
   }
-  function editPost() {
-    //edit the post
-  }
   async function sendMessage() {
-    //send a message:
-
     const response = await sendMessageAPI(token, post._id, sentMessage);
     console.log(response);
   }
