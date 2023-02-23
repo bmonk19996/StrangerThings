@@ -29,15 +29,10 @@ export default function Edit(props) {
       token, id
     );
     console.log(response)
-    // if (response.success) {
-    //   //if successful, update posts, and set success message
-    //   console.log(response);
-    //   const newPosts = [...posts];
-    //   newPosts.push(response.data.post);
-    //   setPosts(newPosts);
-    // } else {
-    //   //set failure message
-    // }
+     if (response.success) {
+
+     } else {
+     }
   }
 
   return (
