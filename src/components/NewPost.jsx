@@ -29,18 +29,27 @@ const NewPost = (props) => {
       setMessage("your item is posted");
       newPosts.push(response.data.post);
       setPosts(newPosts);
-      wait()
-
+      wait();
     } else {
-      //set failure message
-      setMessage("your item failed to post");
+      let tempMessage = "your item failed to post";
+      if (!title) {
+        tempMessage += " must include title";
+      }
+      if (!price) {
+        tempMessage += " must include price";
+      }
+      if (!description) {
+        tempMessage += " must include description";
+      }
+      setMessage(tempMessage);
     }
   }
 
-function wait(){
-  setTimeout(()=>{setShowNew(false)},1000)
-  
-}
+  function wait() {
+    setTimeout(() => {
+      setShowNew(false);
+    }, 1000);
+  }
 
   return (
     <div id="newPost">
@@ -90,7 +99,13 @@ function wait(){
         <button>Add Post</button>
         <h3>{message}</h3>
       </form>
-      <button onClick={()=>{setShowNew(false)}}>close</button>
+      <button
+        onClick={() => {
+          setShowNew(false);
+        }}
+      >
+        close
+      </button>
     </div>
   );
 };
