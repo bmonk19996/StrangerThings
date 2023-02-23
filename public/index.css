@@ -338,7 +338,7 @@ body {
   border-radius: 20px;
 }
 
-.post #sendMessageForm button, .pageButtons{
+.post #sendMessageForm button, .pageButtons, .messageButton{
   align-self: center;
   text-align: center;
   padding: 10px;
@@ -355,4 +355,76 @@ body {
 .post #sendMessageForm button:hover, .pageButtons:hover{
   color: #a7abdd;
   box-shadow: 3px 3px 4px #090446;
+}
+
+#messagePage{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.message{
+ margin: auto;
+}
+
+.holdMessage{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: #ffb5c2;
+  padding: 30px;
+  border-radius: 35px;
+  text-align: center;
+  width: 600px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.holdMessage h2{
+  font-family: 'Montserrat', sans-serif;
+  color: #020887;
+  text-decoration: underline #a7abdd;
+}
+
+.message.to, .message.from{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex: 2;
+  width: 300px;
+  background-color: #fcedee;
+  color: #090446;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+  padding: 30px;
+  border-radius: 35px;
+}
+
+.messageButton{
+  margin-bottom: 10px;
+}
+
+.messagesLabel{
+  color: #020887;
+  text-decoration: underline #a7abdd 2px;
+}
+
+.message.to div, .message.from div{
+  display: flex;
+  /* flex-direction: column; */
+  align-content: flex-start;
+}
+
+.message-content{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  padding: 10px;
+  border: 3px solid #a7abdd;
+  border-radius: 35px;
+  text-align: center;
 }

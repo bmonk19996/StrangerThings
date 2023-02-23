@@ -39,35 +39,52 @@ export default function Messages() {
     setButtonSent((buttonSent + 1) % buttonText.length);
   }
   return (
-    <div>
-      <h2>Received</h2>
-      <button onClick={() => receiveChange()}>
-        {buttonText[buttonReceive]}
-      </button>
+    <div id="messagePage">
+      <div className="holdMessage">
+      <h2 className="messageTitle">Messages For You</h2>
       {received
         ? messagesTo.map((message, idx) => {
             return (
-              <div className="message" key={`messagesTo:${idx}`}>
+              <div className="message to" key={`messagesTo:${idx}`}>
+                <div><span className="messagesLabel">From</span>: {message.fromUser.username}</div>
+                <div><span className="messagesLabel">About</span>: {message.post.title} </div>
+                <div className="message-content"><span className="messagesLabel">Message: </span> {message.content}</div>
+              </div>
+            );
+          })
+        : null}
+      </div>
+      <button onClick={() => receiveChange()} className='messageButton'>
+        {buttonText[buttonReceive]}
+      </button>
+      {/* {received
+        ? messagesTo.map((message, idx) => {
+            return (
+              <div className="message to" key={`messagesTo:${idx}`}>
                 <div>content:{message.content}</div>
                 <div>from: {message.fromUser.username}</div>
                 <div> item: {message.post.title} </div>
               </div>
             );
           })
-        : null}
-      <h2>Sent</h2>
-      <button onClick={() => sentChange()}>{buttonText[buttonSent]}</button>
+        : null} */}
+      
+      <div className="holdMessage">
+      <h2 className="messageTitle">Sent Messages</h2>
       {sent
         ? messagesFrom.map((message, idx) => {
             return (
-              <div className="message" key={`messagesFrom:${idx}`}>
-                <div>content:{message.content}</div>
-                <div>from: {message.fromUser.username}</div>
-                <div> item: {message.post.title} </div>
+              <div className="message from" key={`messagesFrom:${idx}`}>
+               <div><span className="messagesLabel">From</span>: {message.fromUser.username}</div>
+                <div><span className="messagesLabel">About</span>: {message.post.title} </div>
+                <div className="message-content"><span className="messagesLabel">Message:</span><br></br> {message.content}</div>
               </div>
             );
           })
         : null}
+      </div>
+      <button onClick={() => sentChange()} className='messageButton'>{buttonText[buttonSent]}</button>
+
     </div>
   );
 }
