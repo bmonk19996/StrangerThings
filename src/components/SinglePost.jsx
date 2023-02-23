@@ -56,10 +56,17 @@ const SinglePost = (props) => {
       <div>
         <span className="cardLabel">Created</span>: {post.createdAt}
       </div>
-      {post.isAuthor ? (
+
+      {!token ? null : post.isAuthor ? (
         <div>
-          <button onClick={() => deleteMyPost()} className='pageButtons'>delete</button>
-          <Link to= {`/edit/${post._id}`} state={post}><button onClick={() => editPost()} className='pageButtons'>edit</button></Link>
+          <button onClick={() => deleteMyPost()} className="pageButtons">
+            delete
+          </button>
+          <Link to={`/edit/${post._id}`} state={post}>
+            <button onClick={() => editPost()} className="pageButtons">
+              edit
+            </button>
+          </Link>
         </div>
       ) : (
         <form
