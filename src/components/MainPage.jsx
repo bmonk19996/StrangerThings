@@ -3,7 +3,7 @@ import { NewPost, PostList } from "./";
 import { useOutletContext } from "react-router-dom";
 import { getPosts } from "../API-Adapt";
 export default function MainPage() {
-  const [token, , showNew] = useOutletContext();
+  const [token, , showNew, setShowNew] = useOutletContext();
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -40,7 +40,7 @@ export default function MainPage() {
       )}
 
       {token && showNew ? (
-        <NewPost token={token} setPosts={setPosts} posts={posts} />
+        <NewPost token={token} setPosts={setPosts} posts={posts} setShowNew={setShowNew}/>
       ) : null}
     </div>
   );

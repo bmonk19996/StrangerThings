@@ -5,7 +5,7 @@ const NewPost = (props) => {
   const token = props.token;
   const posts = props.posts;
   const setPosts = props.setPosts;
-
+  const setShowNew = props.setShowNew;
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,11 +29,19 @@ const NewPost = (props) => {
       setMessage("your item is posted");
       newPosts.push(response.data.post);
       setPosts(newPosts);
+      wait()
+
     } else {
       //set failure message
       setMessage("your item failed to post");
     }
   }
+
+function wait(){
+  setTimeout(()=>{setShowNew(false)},1000)
+  
+}
+
   return (
     <div id="newPost">
       <h1>Add a Post to the Board</h1>
@@ -82,6 +90,7 @@ const NewPost = (props) => {
         <button>Add Post</button>
         <h3>{message}</h3>
       </form>
+      <button onClick={()=>{setShowNew(false)}}>close</button>
     </div>
   );
 };
